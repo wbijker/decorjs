@@ -18,12 +18,13 @@ function parseAttributes(el, context) {
         let a = el.attributes[i];
         if (a.name.charAt(0) === ':') {
             let name = a.name.substr(1);
+            context[a.value] = {$el: el};
             switch (name) {
                 case 'text':
-                    context[a.value] = el.textContent;
+                    context[a.value].value = el.textContent;
                     break;
                 case 'value':
-                    context[a.value] = getValue(el);
+                    context[a.value].value = getValue(el);
                     break;
                 case 'for': // Scan all children
                     const children = [];
@@ -32,7 +33,7 @@ function parseAttributes(el, context) {
                         parseDom(el.children[c], childContext)
                         children.push(childContext);
                     }
-                    context[a.value] = children;
+                    context[a.value].value = children;
                     return true;
             }
         }
