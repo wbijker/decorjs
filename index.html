@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <div>
+        <span :text="message">It works.</span>
+    </div>
+
+    <ul :for="items">
+        <li>
+            <data hidden :name="other">112</data>
+            <input type="checkbox" :value="done" checked="checked">
+            <span :text="desc">Item 1</span>
+        </li>
+
+        <li>
+            <data hidden :bind="other">114</data>
+            <input type="checkbox" :value="done">
+            <span :text="desc">Item 2</span>
+        </li>
+
+        <li>
+            <data hidden :bind="other">116</data>
+            <input type="checkbox" :value="done" checked="checked">
+            <span :text="desc">Item 3</span>
+        </li>
+    </ul>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
